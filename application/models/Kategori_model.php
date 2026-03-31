@@ -14,4 +14,12 @@ class Kategori_model extends CI_Model {
     {
         return $this->db->insert($this->table, $data);
     }
+    public function delete($id)
+    {
+        return $this->db->delete($this->table,['id'=>$id]);
+    }
+    public function is_used($id)
+    {
+        return $this->db->where('kategori_id',$id)->count_all_results('buku')>0;
+    }
 }
