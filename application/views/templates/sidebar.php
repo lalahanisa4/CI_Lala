@@ -22,6 +22,12 @@
         <span>Kategoi</span>
 </a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="<?= site_url('anggota') ?>">
+        <i class="fas fa-book"></i>
+        <span>Anggota</span>
+</a>
+</li>
 <hr class="sidebar-divider d-none d-md-block">
 
 </ul>
