@@ -7,6 +7,10 @@ class Anggota extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Anggota_model');
+        if (!$this->session->userdata('login')){
+            redirect('login');
+        }
+        $this->load->model('auth_model');
     }
 
     public function index()
