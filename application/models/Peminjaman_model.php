@@ -9,7 +9,7 @@ class peminjaman_model extends CI_model{
     {
         $this->db->select('peminjaman.*,anggota.nama');
         $this->db->from('peminjaman');
-        $this->db->join('anggota','anggota_id = peminjaman.anggota_id');
+        $this->db->join('anggota','anggota.nomor_anggota = peminjaman.anggota_id');
         return $this->db->get()->result();
     }
 
@@ -30,9 +30,9 @@ class peminjaman_model extends CI_model{
 
     public function get_detail()
     {
-        $this->db->get('detail_peminjaman.*,buku.judul');        
+        $this->db->select('detail_peminjaman.*,buku.judul');        
         $this->db->from('detail_peminjaman');
-        $this->db->join('buku','buku_id = detail_peminjaman.buku_id');
+        $this->db->join('buku','buku.id_buku = detail_peminjaman.buku_id');
         $this->db->where('peminjaman_id',$id);
         return $this->db->get()->row();       
 
@@ -67,7 +67,7 @@ class peminjaman_model extends CI_model{
 
         //update stok
         $this->db->set('stok','stok + 1', FALSE);
-        $this->db->where('id',$detail->buku_id);
+        $this->db->where('id_buku',$detail->buku_id);
         $this->db->update('buku');
     }
 }

@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    
 <h2 class="h3 mb-4 text-gray-800">Data Peminjaman</h2>
 
 <a href="<?= site_url('peminjaman/tambah'); ?>" class="btn btn-primary mb-3">
