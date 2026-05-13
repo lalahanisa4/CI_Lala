@@ -43,7 +43,7 @@ class Buku extends CI_Controller {
     {
         $this->form_validation->set_rules('kode_buku', 'Kode Buku', 'required');
         $this->form_validation->set_rules('judul', 'Judul', 'required');
-        $this->form_validation->set_rules('penulis', 'Penulis', 'required');
+        $this->form_validation->set_rules('nama_penulis', 'Penulis', 'required');
         $this->form_validation->set_rules('penerbit', 'Penerbit', 'required');
         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
         $this->form_validation->set_rules('kategori', 'Kategori', 'required');
@@ -56,7 +56,7 @@ class Buku extends CI_Controller {
             $data = [
                 'kode_buku' => $this->input->post('kode_buku'),
                 'judul' => $this->input->post('judul'),
-                'penulis' => $this->input->post('penulis'),
+                'nama_penulis' => $this->input->post('nama_penulis'),
                 'penerbit' => $this->input->post('penerbit'),
                 'tahun' => $this->input->post('tahun'),
                 'id_kategori' => $this->input->post('kategori'),
@@ -101,7 +101,7 @@ class Buku extends CI_Controller {
             $data = [
                 'kode_buku' => $this->input->post('kode_buku'),
                 'judul' => $this->input->post('judul'),
-                'penulis' => $this->input->post('penulis'),
+                'nama_penulis' => $this->input->post('nama_penulis'),
                 'penerbit' => $this->input->post('penerbit'),
                 'tahun' => $this->input->post('tahun'),
                 'id_kategori' => $this->input->post('kategori'),
@@ -113,4 +113,22 @@ class Buku extends CI_Controller {
             redirect('buku');
         }
     }
+    // Cetak Buku
+    public function cetak_buku()
+{
+    $penulis = $this->input->get('penulis');
+
+    $this->db->select('buku.*, kategori.nama_kategori');
+    $this->db->from('buku');
+    $this->db->join('kategori', 'kategori.id = buku.id_kategori', 'left');
+
+    if($penulis){
+        $this->db->where('buku.nama_penulis', $penulis);
+    }
+
+    $data['data'] = $this->db->get()->result();
+    $data['penulis'] = $penulis;
+
+    $this->load->view('laporan/cetak_buku', $data);
+}
 }

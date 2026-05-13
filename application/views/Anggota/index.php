@@ -1,10 +1,15 @@
 <div class="container-fluid">
 
-<h2 class="h3 mb-4 text-gray-800">Data Anggota</h2>
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+        <h2 class="h3 text-gray-800 mb-0">Data Anggota</h2>
+        <small class="text-muted">Kelola data anggota perpustakaan/sistem</small>
+    </div>
 
-<a href="<?= site_url('anggota/tambah'); ?>" class="btn btn-primary mb-3">
-    <i class="fas fa-plus"></i> Tambah
-</a>
+    <a href="<?= site_url('anggota/tambah'); ?>" class="btn btn-primary shadow-sm">
+        <i class="fas fa-plus fa-sm"></i> Tambah Anggota
+    </a>
+</div>
 
 <div class="card shadow mb-4">
 <div class="card-body">

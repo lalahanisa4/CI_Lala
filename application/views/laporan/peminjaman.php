@@ -7,19 +7,23 @@
     </form>
 
     <br>
-    <a href="<?= site_url('peminjaman/cetak_peminjaman?bulan='. $bulan); ?>"
-    target="_blank class="btn btn-success btn-sm"> Cetak PDF </a>
+
+<a href="<?= site_url('peminjaman/cetak_peminjaman?bulan='. $bulan); ?>"
+       target="_blank"
+       class="btn btn-success btn-sm mb-3">
+       Cetak PDF
+    </a>
 
     <table class="table table-bordered mt-3">
+        <thead>
         <tr>
         <th>No</th>
         <th>Kode peminjaman</th>
         <th>Nama</th>
         <th>Tanggal</th>
         <th>Status</th>
-        <th>Aksi</th>
     </tr>
-</thead>
+        </thead>
 <tbody>
 <?php $no=1; foreach($data as $d): ?>
     <tr>
@@ -30,5 +34,6 @@
         <td><?= $d->status; ?></td>
     </tr>
     <?php endforeach; ?>
+    </tbody>
     </table>
 </div>

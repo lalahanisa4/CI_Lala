@@ -18,7 +18,7 @@
 
     <div class="form-group">
         <label>Penulis</label>
-        <input type="text" name="penulis" class="form-control" value="<?= $buku->penulis; ?>" required>
+        <input type="text" name="nama_penulis" class="form-control" value="<?= $buku->nama_penulis; ?>" required>
     </div>
 
     <div class="form-group">

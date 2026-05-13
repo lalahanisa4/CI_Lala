@@ -32,4 +32,43 @@ class laporan extends CI_Controller{
         $this->load->view('laporan/peminjaman', $data);
         $this->load->view('templates/footer'); 
     }
+   public function buku()
+{
+    // ambil data dari form
+    $penulis = $this->input->get('nama_penulis');
+
+    $this->db->select('buku.*, kategori.nama_kategori');
+    $this->db->from('buku');
+    $this->db->join('kategori', 'kategori.id = buku.id_kategori', 'left');
+
+    // filter penulis
+    if($penulis){
+        $this->db->where('buku.nama_penulis', $penulis);
+    }
+
+    $data['data'] = $this->db->get()->result();
+    $data['penulis'] = $penulis;
+
+    // ambil daftar penulis unik
+    $data['list_penulis'] = $this->db
+        ->query("SELECT nama_penulis FROM buku ORDER BY nama_penulis ASC")
+        ->result();
+
+    $this->load->view('templates/header');
+    $this->load->view('templates/sidebar');
+    $this->load->view('templates/topbar');
+    $this->load->view('laporan/buku', $data);
+    $this->load->view('templates/footer');
+}
+public function anggota()
+{
+    $data['data'] = $this->db->get('anggota')->result();
+
+    $this->load->view('templates/header');
+    $this->load->view('templates/sidebar');
+    $this->load->view('templates/topbar');
+    $this->load->view('laporan/anggota', $data);
+    $this->load->view('templates/footer');
+}
+
 }

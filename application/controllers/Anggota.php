@@ -77,4 +77,10 @@ class Anggota extends CI_Controller {
         $this->Anggota_model->delete($nomor_anggota);
         redirect('anggota');
     }
+    public function cetak_anggota()
+{
+    $data['data'] = $this->db->get('anggota')->result();
+
+    $this->load->view('laporan/cetak_anggota', $data);
+}
 }

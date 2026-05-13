@@ -1,9 +1,14 @@
 <div class="container-fluid">
-<h2 class="h3 mb-4 text-gray-800">Data Buku</h2>
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+        <h2 class="h3 text-gray-800 mb-0">Data Buku</h2>
+        <small class="text-muted">Kelola data buku</small>
+    </div>
 
-<a href="<?= site_url('buku/tambah'); ?>" class="btn btn-primary mb-3">
-<i class="fas fa-plus"></i> Tambah</a>
-
+    <a href="<?= site_url('buku/tambah'); ?>" class="btn btn-primary shadow-sm">
+        <i class="fas fa-plus fa-sm"></i> Tambah Buku
+    </a>
+</div>
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
@@ -27,7 +32,7 @@
                         <td><?= $no++; ?></td>
                         <td><?= $b->kode_buku; ?></td>
                         <td><?= $b->judul; ?></td>
-                        <td><?= $b->penulis; ?></td>
+                        <td><?= $b->nama_penulis; ?></td>
                         <td><?= $b->nama_kategori; ?></td> <!-- hasil JOIN -->
                         <td><?= $b->stok; ?></td>
                         <td>

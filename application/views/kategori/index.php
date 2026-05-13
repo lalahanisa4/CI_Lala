@@ -1,8 +1,14 @@
 <div class="container-fluid">
-<h2 class="h3 mb-4 text-gray-800">Data Kategori</h2>
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+        <h2 class="h3 text-gray-800 mb-0">Data Kategori</h2>
+        <small class="text-muted">Kelola data kategori</small>
+    </div>
 
-<a href="<?= site_url('kategori/tambah'); ?>" class="btn btn-primary mb-3">
-    <i class="fas fa-plus"></i>Tambah</a>
+    <a href="<?= site_url('kategori/tambah'); ?>" class="btn btn-primary shadow-sm">
+        <i class="fas fa-plus fa-sm"></i> Tambah Kategori
+    </a>
+</div>
 
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -21,9 +27,10 @@
         <td><?= $no++; ?></td>
         <td><?= $k->nama_kategori; ?></td>
         <td>
-            <a href="<?= site_url('kategori/edit/'.$k->id); ?>">Edit</a>
-            <a href="<?= site_url('kategori/hapus/'.$k->id); ?>"
-            onclick="return confirm('yakin?')">Hapus</a>
+             <a href="<?= site_url('kategori/edit/'.$k->id); ?>" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="<?= site_url('kategori/hapus/'.$k->id); ?>" 
+                               class="btn btn-danger btn-sm"
+                               onclick="return confirm('yakin?')">Hapus</a>
         </td>
     </tr>
 <?php endforeach; ?>
