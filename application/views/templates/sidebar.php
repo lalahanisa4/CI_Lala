@@ -61,6 +61,11 @@
                 Laporan Buku
             </a>
 
+             <a class="collapse-item" href="<?= site_url('laporan/kategori') ?>">
+                <i class="fas fa-layer-group mr-2 text-warning"></i>
+                Laporan Kategori
+            </a>
+
             <a class="collapse-item" href="<?= site_url('laporan/anggota') ?>">
                 <i class="fas fa-users mr-2 text-success"></i>
                 Laporan Anggota

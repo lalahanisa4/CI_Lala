@@ -71,4 +71,14 @@ public function anggota()
     $this->load->view('templates/footer');
 }
 
+public function kategori()
+{
+    $data['Kategori'] = $this->db->get('kategori')->result();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('templates/topbar', $data);
+    $this->load->view('laporan/kategori', $data);
+    $this->load->view('templates/footer');
+}
 }
